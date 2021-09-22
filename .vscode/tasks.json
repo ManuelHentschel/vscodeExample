@@ -1,0 +1,50 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run R code",
+            "type": "shell",
+            "command": "R --silent -f createExample.R",
+            "problemMatcher": [],
+        },
+        {
+            "label": "Create Solution Tex",
+            "type": "shell",
+            "command": "PowerShell",
+            "args": ["-Command", "(Get-Content assignment.tex) -replace 'solutionfalse', 'solutiontrue' | Out-File -encoding ASCII solution.tex"],
+            "problemMatcher": [],
+        },
+        {
+            "label": "Compile assignment",
+            "type": "shell",
+            "command": "latexmk -gg -pdf assignment.tex",
+            "problemMatcher": [],
+            "dependsOn":[
+                "Run R code"
+            ]
+        },
+        {
+            "label": "Compile solution",
+            "type": "shell",
+            "command": "latexmk -gg -pdf solution.tex",
+            "problemMatcher": [],
+            "dependsOn": [
+                "Create Solution Tex",
+                "Run R code"
+            ]
+        },
+        {
+            "label": "Compile Stuff",
+            "dependsOn": [
+                "Compile assignment",
+                "Compile solution"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

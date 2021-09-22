@@ -1,0 +1,61 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+
+\begin{document}
+
+\newif\ifsolution
+\solutionfalse
+
+\setcounter{MaxMatrixCols}{20}
+
+\title{Extremel Graphical Models}
+\author{}
+
+\maketitle
+
+\section{Huesler Reiss Models}
+
+\subsection{Assignment}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{graph.pdf}
+    \caption{
+        A graph
+    }
+    \label{fig:graph}
+\end{figure}
+As you can see, Figure \ref{fig:graph} shows a graph.
+A matching Gamma matrix looks as follows:
+\begin{align}
+    \left(
+        \begin{matrix}
+            \input{Gamma.tex}
+        \end{matrix}
+    \right)
+\end{align}
+\textbf{Task:}
+Make an estimate!
+
+\ifsolution
+
+\subsection{Solution}
+
+The estimate is shown in Figure \ref{fig:estimate}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{estimate.pdf}
+    \caption{
+        An estimate
+    }
+    \label{fig:estimate}
+\end{figure}
+
+\fi
+
+
+\end{document}

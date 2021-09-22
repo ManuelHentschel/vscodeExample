@@ -1,0 +1,5 @@
+{
+    "r.lsp.diagnostics": false,
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "r.plot.useHttpgd": true
+}
